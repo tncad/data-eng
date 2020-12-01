@@ -1,0 +1,16 @@
+
+version: 2
+
+models:
+    - name: stg_message_hashed
+      columns:
+          - name: id
+          - name: _d
+          - name: t
+          - name: rid
+          - name: ts
+          - name: msg
+          - name: groupable
+          - name: _updatedAt
+          - name: u._id
+          - name: u.username
