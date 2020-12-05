@@ -1,15 +1,25 @@
 version: 2
 
 models:
-    - name: stg_message
+    - name: dim_user
       columns:
-          - name: id
-          - name: _d
-          - name: t
-          - name: rid
-          - name: ts
-          - name: msg
-          - name: groupable
-          - name: _updatedAt
-          - name: u._id
-          - name: u.username
+          - name: _id
+            tests:
+              - unique
+    - name: dim_time
+      columns:
+          - name: _id
+            tests:
+              - unique
+    - name: fact_message
+      columns:
+          - name: dim_user._id
+            tests:
+              - relationships:
+                  to: ref('dim_user')
+                  field: _id
+          - name: dim_time._id
+            tests:
+              - relationships:
+                  to: ref('dim_time')
+                  field: _id

@@ -1,34 +1,16 @@
-
-/*
-    Welcome to your first dbt model!
-    Did you know that you can also configure models directly within SQL files?
-    This will override configurations stated in dbt_project.yml
-
-    Try changing "table" to "view" below
-*/
-
-{{ config(materialized='table') }}
-
-with stg_message as (
+WITH stg_message AS (
 
   select
-    id BIGINT,
-    _id TEXT,
-    t TEXT,
-    rid TEXT,
-    ts TEXT,
-    msg TEXT,
-    groupable BOOLEAN,
-    "_updatedAt" TEXT,
-    "u._id" TEXT,
-    "u.username" TEXT
+    null::BIGINT as id,
+    null::TEXT as _id,
+    null::TEXT as t,
+    null::TEXT as rid,
+    null::TEXT as ts,
+    null::TEXT as msg,
+    null::BOOLEAN as groupable,
+    null::TEXT as "_updatedAt",
+    null::TEXT as "u._id",
+    null::TEXT as "u.username"
 )
 
-select *
-from stg_message
-
-/*
-    Uncomment the line below to remove records with null `id` values
-*/
-
--- where id is not null
+SELECT * FROM stg_message WHERE _id IS NOT NULL
