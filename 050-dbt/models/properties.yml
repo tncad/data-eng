@@ -1,8 +1,7 @@
-
 version: 2
 
 models:
-    - name: stg_message_hashed
+    - name: stg_message
       columns:
           - name: id
           - name: _d

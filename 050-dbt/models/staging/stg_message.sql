@@ -9,16 +9,23 @@
 
 {{ config(materialized='table') }}
 
-with stg_message_hashed as (
+with stg_message as (
 
-    select 1 as id
-    union all
-    select null as id
-
+  select
+    id BIGINT,
+    _id TEXT,
+    t TEXT,
+    rid TEXT,
+    ts TEXT,
+    msg TEXT,
+    groupable BOOLEAN,
+    "_updatedAt" TEXT,
+    "u._id" TEXT,
+    "u.username" TEXT
 )
 
 select *
-from stg_message_hashed
+from stg_message
 
 /*
     Uncomment the line below to remove records with null `id` values
